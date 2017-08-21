@@ -1,0 +1,30 @@
+{% extends "backbone.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block main %}
+          <a href="\" class="">Home</a>
+          <form action="search">
+            <input type="text" name="search" placeholder="Search">
+            <input type="submit">
+          </form>
+          <div id="grid" style="margin-left:15%">
+            <table class="table-striped"style="width:80%;background:white">
+              <tr>
+                <th>Team</th>
+                <th>Wins</th> 
+                <th>Losses</th>
+                <th>Win Percentage</th>
+              </tr>
+              {% for d in data %}
+              <tr align="center"> 
+                {% for i in d %} 
+                <th align="center">{{i}}</th> 
+                {% endfor %}
+              </tr> 
+              {% endfor %} 
+            </table>
+          </div>
+    </script>
+{%endblock%}

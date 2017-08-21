@@ -1,0 +1,16 @@
+{% extends "backbone.html" %}
+{% block title %}Register{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block main %}
+    <form action='/register_user' method='POST'>
+		<label>Email:</label><input type='text' name='email' id='email' placeholder='Email'></input><br>
+		<label>Password:</label><input type='password' name='password' id='password' placeholder='Password'></input><br>
+		<label>First Name:</label><input type='text' name='firstName' id='firstName' placeholder='First Name'></input><br>
+		<label>Last Name:</label><input type='text' name='lastName' id='lastName' placeholder='Last Name'></input><br>
+		<label>Team:</label><input type='text' name='team' id='team' placeholder='Team'></input><br>
+		<input type='submit' name='submit'></input>
+	</form></br>
+	<a href='/login_user'>Already Have an account? Log in</a>
+{% endblock %}

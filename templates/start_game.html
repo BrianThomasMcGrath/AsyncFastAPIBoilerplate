@@ -1,0 +1,15 @@
+{% extends "backbone.html" %}
+{% block title %}Start Game{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block main %}
+   <form method="POST" action="start_game">
+   		<label>Opposing Team:</label><input type="text" name="team2"> <br>
+   		<label>Tournament:</label><input type="text" name="tournament"> <br>
+   		{% for p in players %}
+   			<input type="checkbox" name="players" value="{{p[1]}} {{p[2]}}">  {{p[1]}} {{p[2]}} <br>
+   		{%endfor%}
+   		<input type="submit">
+   </form>
+{% endblock %}

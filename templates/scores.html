@@ -1,0 +1,68 @@
+<html>
+	<head>
+        <title>Tweetboard</title>
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.2.504/styles/kendo.common.min.css" />
+
+    <script src="http://kendo.cdn.telerik.com/2017.2.504/js/kendo.all.min.js"></script>
+	</head>
+  
+  	<body style="background:#B0E0E6">
+
+  		<main>
+          <h1 style="margin-left:42%; color: white; text-shadow: 2px 2px black"> TweetBoard </h1>
+          <div id="grid"></div>
+    <script>
+        $(document).ready(function () {
+            var dataSource = new kendo.data.DataSource({{data.strip('\"')|tojson}})
+            $("#grid").kendoGrid({
+                dataSource: {
+                 transport: {
+                    read:  {
+                      url: "/scores",
+                      dataType: "json" // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    }
+                  }
+
+                },
+                height: 550,
+                groupable: true,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [{
+                    field: "winner",
+                    title: "Winner",
+                }, {
+                    field: "loser",
+                    title: "Loser"
+                }, {
+                    field: "w_score ",
+                    title: "Winning Score"
+                }, {
+                    field: "l_score",
+                    title: "Losing Score"
+                },
+                {
+                    field: "tournament",
+                    title: "Tournament"
+                },
+                {
+                    field: "dt",
+                    title: "Datetime"
+                }
+                ]
+            });
+        });
+    </script>
+    	</main>
+  	</body>
+</html>

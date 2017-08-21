@@ -1,0 +1,43 @@
+{% extends "backbone.html" %}
+{% block title %}Start Game{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block main %}
+   	<h1>{{team}}</h1>
+
+      <table style="width:50%; margin-left: 25%">
+         <tr>
+            <td>Name</td>
+            <td>Scores</td>
+            <td>Assists</td>
+         </tr>
+            
+         {% for p in players %}
+         <tr>
+   	      <form action="removePlayer">
+            <td>
+               <p name="name">{{p[1]}} {{p[2]}}</p>
+   		   </td>
+            <td>
+               {{p[3]}}
+            </td>
+            <td>
+               {{p[4]}}
+            </td>
+            <td>
+              
+   			   
+   			      <input type="submit" name="removePlayer"value="Remove Player">
+   		      
+            </td>
+            </form>
+         </tr>
+            {%endfor%}
+   	<form action="/addPlayer" style="margin-left: 35%">
+   		<p>Add Player:</p>
+   		<input type="text" name="first_name" placeholder="First Name">
+   		<input type="text" name="last_name" placeholder="Last Name">
+   		<input type="submit">
+   	</form>
+{% endblock %}

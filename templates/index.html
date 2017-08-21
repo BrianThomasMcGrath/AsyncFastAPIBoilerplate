@@ -1,0 +1,56 @@
+
+{% extends "backbone.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+    .left-div {
+    float: left;
+    width: 30%;
+    height: 20px;
+    margin-right: 8px;
+    background-color:
+}
+.right-div {
+    float: left;
+    margin-left: 50%;
+    background-color: skyblue;
+}​
+    </style>
+{% endblock %}
+{% block main %}
+
+            <div class="fluid container left-div">
+                <form action="/teamscore" method="get" width="100%">
+    		  	       <input type="text" value="{{team1}}"name="home"/>
+                   <input type="text" name="score1" value="{{score1}}">
+                   <button type="submit1" formaction="/team1/{{gameID}}">+1</button><br>
+                   <input type="text" value="{{team2}}" name="away"/>
+                   <input type="text" name="score2" value="{{score2}}">
+                   <button type="submit" formaction="/team2/{{gameID}}">+1</button><br>
+                   <textarea class="form-control" style="margin-top: 2px; width: 345px; margin-right: 0px"name="message" placeholder="Message (optional)"></textarea>        
+                   <input type="text" name="tournament" placeholder="Tournament" style="margin-top: 2px; width: 345px; margin-right:0px" value="{{tournament}}"> <br>
+                   <button type="submit" formaction="/tweetScore/{{gameID}}" style="width:345px">Tweet Score Without Incrementing</button><br>
+                   <button style="margin-top: 2px; width: 345px;" formaction="/submit/{{gameID}}">Report Score to Tournament Director</button>
+                   <table style="width: 345px;">
+                    <tr>
+                      <td>Player</td>
+                      <td>Score</td>
+                      <td>Assist</td>
+                    </tr>
+                   {% for p in players%}
+                    <tr>
+                     <td>{{p[0]}} {{p[1]}}</td>
+                     <td><input type="checkbox" name="score" value="{{p[0]}} {{p[1]}}"> </td>
+                     <td><input type="checkbox" name="assist" value="{{p[0]}} {{p[1]}}"> </td>
+                    </tr>
+                  {%endfor%}
+                </table>
+    		      </form>
+            </div>
+            <div class="right-div">
+                <a class="twitter-timeline" href="https://twitter.com/{{screen_name}}"data-width="600"
+  data-height="400">>Tweets by {{screen_name}}</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div> 
+      </table>
+{% endblock %}

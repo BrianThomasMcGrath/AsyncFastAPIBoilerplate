@@ -1,0 +1,18 @@
+{% extends "backbone.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+    	#login{
+    		margin-top: 10%;
+    		margin-left: 40%;
+    	}
+    </style>
+{% endblock %}
+{% block main %}
+    <form id="login" action='login' method='POST'>
+		<div style="margin:3px"><label style="margin-right:32px">Email:</label><input type='text' name='email' id='email' placeholder='email'></input> <br></div>
+		<div style="margin:3px"><label style="margin-right:3px">Password:</label><input type='password' name='password' id='password' placeholder='password'></input><br></div>
+		<input type='submit' name='submit' style="margin-top:10px"></input>
+	</form></br>	
+{% endblock %}

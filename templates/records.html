@@ -1,0 +1,31 @@
+
+{% extends "backbone.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block main %}
+          <h1 style="margin-left:42%; color: white; text-shadow: 2px 2px black"> TweetBoard </h1>
+          <a href="\" class="">Home</a>
+          <form action="search">
+            <input type="text" name="search" placeholder="Search">
+            <input type="submit">
+          </form>
+          <div id="grid" style="margin-left:15%">
+            <table class="table-striped"style="width:80%;background:white">
+              <tr>
+                <th>Teams<th>
+                <th>Winner</th>
+                <th>Loser</th> 
+              </tr>
+              {% for d in data %}
+              <tr align="center"> 
+                {% for i in d %} 
+                <th align="center">{{i}}</th> 
+                {% endfor %}
+              </tr> 
+              {% endfor %} 
+            </table>
+          </div>
+    </script>
+{% endblock %}
