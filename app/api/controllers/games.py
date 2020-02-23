@@ -1,5 +1,5 @@
 from flask import request
-from flask_restx import Resource, Namespace
+from flask_restplus import Resource, Namespace
 
 from app.api.models import new_game_request
 from app.core.services.scoreboard import ScoreBoardService
