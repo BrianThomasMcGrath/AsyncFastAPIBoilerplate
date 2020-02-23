@@ -15,8 +15,8 @@ class TwitterService:
         # user interface on the twitter side.
         authorize_url='https://api.twitter.com/oauth/authorize',
         # the consumer keys from the twitter application registry.
-        consumer_key='KhXbcsK44j0Q2hKtN2aRUIoHB',
-        consumer_secret='DzTGByioKTU0WADPW3Juc79tZFccp4TsI4mv44rbqYfVCBFwYp'
+        consumer_key='***',
+        consumer_secret='***'
     )
     
     def oauth_authorized(resp):
