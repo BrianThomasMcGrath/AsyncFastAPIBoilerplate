@@ -1,6 +1,7 @@
 
 
 class TwitterService:
+    
     twitter = oauth.remote_app('twitter',
         # unless absolute urls are used to make requests, this will be added
         # before all URLs.  This is also true for request_token_url and others.
